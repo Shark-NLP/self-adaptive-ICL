@@ -4,10 +4,6 @@ export WANDB_API_KEY=78f39d1d23c9ded73f35de542ecb99e4a98ed6cb  # change to your 
 export WANDB_START_METHOD=thread
 export TOKENIZERS_PARALLELISM=false
 
-export http_proxy=http://172.16.1.135:3128/
-export https_proxy=http://172.16.1.135:3128/
-export HTTP_PROXY=http://172.16.1.135:3128/
-export HTTPS_PROXY=http://172.16.1.135:3128/
 export HYDRA_FULL_ERROR=1
 
 port=12715
