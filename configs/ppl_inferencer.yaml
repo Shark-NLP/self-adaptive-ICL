@@ -1,0 +1,27 @@
+hydra:
+  job:
+    chdir: false
+batch_size: 48
+model_name: "gpt2-xl"
+rand_seed: 1
+output_file: ???
+task_name: sst2
+window: 10
+span: false
+n_tokens: 700
+instruction_template: 1
+overwrite: true
+calibrate: false
+reverse_label: false
+prior_no: 1
+dataset_reader:
+  _target_: src.dataset_readers.ppl_inference_cls_dsr.PPLCLSInferenceDatasetReader
+  dataset_path: ???
+  task_name: ${task_name}
+  model_name: ${model_name}
+  index_split: "train"
+  n_tokens: 700
+  index_data_path: null
+model:
+  _target_: transformers.AutoModelForCausalLM.from_pretrained
+  pretrained_model_name_or_path: ${model_name}

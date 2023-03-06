@@ -1,0 +1,25 @@
+hydra:
+  job:
+    chdir: false
+model_name: "gpt2-large"
+task_name: ???
+output_file: ???
+batch_size: 48
+dataset_reader:
+  _target_: src.dataset_readers.inference_dsr.InferenceDatasetReader
+  dataset_path: ???
+  task_name: ${task_name}
+  model_name: ${model_name}
+  n_tokens: 700
+  index_reader: ${index_reader}
+index_reader:
+  _target_: src.dataset_readers.index_dsr.IndexDatasetReader
+  task_name: ${task_name}
+  model_name: ${model_name}
+  field: ALL
+  dataset_split: train
+  dataset_path: null
+model:
+  _target_: transformers.AutoModelForCausalLM.from_pretrained
+  pretrained_model_name_or_path: ${model_name}
+

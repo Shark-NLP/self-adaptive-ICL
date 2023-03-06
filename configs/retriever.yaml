@@ -1,0 +1,37 @@
+hydra:
+  job:
+    chdir: false
+batch_size: 48
+rand_seed: 1
+model_name: "gpt2-xl"
+dpp_sampling: false
+scale_factor: null
+rerank: false
+window: 30
+num_candidates: 8
+num_ice: 100
+output_file: ???
+task_name: sst2
+cuda_device: cuda:0
+method: 'mdl'
+force_topk: true
+instruction_template: 1
+span: true
+n_tokens: 700
+sort: false
+use_rand_pool: false
+calibrate: false
+prior_no: 1
+overwrite: true
+all_permutation: false
+dataset_reader:
+  _target_: src.dataset_readers.retriever_dsr.RetrieverDatasetReader
+  dataset_path: ???
+  task_name: ${task_name}
+  model_name: ${model_name}
+  index_split: "train"
+  n_tokens: 700
+  index_data_path: null
+model:
+  _target_: transformers.AutoModelForCausalLM.from_pretrained
+  pretrained_model_name_or_path: ${model_name}

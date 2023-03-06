@@ -1,0 +1,9 @@
+transformers
+hydra-core
+datasets
+accelerate
+nltk
+dppy
+faiss-gpu
+spacy
+sentence_transformers
