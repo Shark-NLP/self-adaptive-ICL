@@ -1,6 +1,6 @@
 export WANDB_PROJECT=ICL  # change if needed
-export WANDB_ENTITY=wyx001  # change to your wandb account
-export WANDB_API_KEY=78f39d1d23c9ded73f35de542ecb99e4a98ed6cb  # change to your api-key
+export WANDB_ENTITY=xx  # change to your wandb account
+export WANDB_API_KEY=xx  # change to your api-key
 export WANDB_START_METHOD=thread
 export TOKENIZERS_PARALLELISM=false
 
