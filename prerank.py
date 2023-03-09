@@ -97,19 +97,19 @@ class PreRank:
                     logger.info(f"finish {str(i)} batches")
                 metadata = entry.pop("metadata")
                 raw_text = self.retriever_model.tokenizer.batch_decode(entry['input_ids'], skip_special_tokens=True)
-                res = self.retriever_model.encode(raw_text, show_progress_bar=False, **kwargs)  # 只要把model换掉就行?
+                res = self.retriever_model.encode(raw_text, show_progress_bar=False, **kwargs)
             res_list.extend([{"embed": r, "metadata": m} for r, m in zip(res, metadata)])
         return res_list
 
     def knn_search(self, entry, num_candidates=1, num_ice=1):
         embed = np.expand_dims(entry['embed'], axis=0)
-        near_ids = self.index.search(embed, max(num_candidates, num_ice) + 1)[1][0].tolist()  # 检索相似的embed
+        near_ids = self.index.search(embed, max(num_candidates, num_ice) + 1)[1][0].tolist()
         near_ids = near_ids[1:] if self.is_train else near_ids
-        return near_ids[:num_ice], [[i] for i in near_ids[:num_candidates]]  # candidates格式有点怪，但是不影响
+        return near_ids[:num_ice], [[i] for i in near_ids[:num_candidates]]
 
-    def random_search(self, num_candidates=1, num_ice=1):  # 没用
+    def random_search(self, num_candidates=1, num_ice=1):
         rand_ids = np.random.choice(list(range(len(self.index_reader))), size=num_candidates, replace=False).tolist()
-        return rand_ids[:num_ice], [[i] for i in rand_ids[:num_candidates]]  # candidates格式有点怪，但是不影响
+        return rand_ids[:num_ice], [[i] for i in rand_ids[:num_candidates]]
 
     def get_kernel(self, embed, candidates):
         near_reps = np.stack([self.index.index.reconstruct(i) for i in candidates], axis=0)
