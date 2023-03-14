@@ -13,7 +13,7 @@ This repository contains the source code for Self-adaptive In-context Learning, 
 All required packages can be found in ``requirements.txt``. 
 You can install them in a new environment with 
 ```shell
-conda create -n adaptive python=3.7
+conda create -n adaptive python=3.8
 conda activate adaptive
 
 # The following line to be replaced depending on your cuda version.
