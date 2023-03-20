@@ -64,8 +64,8 @@ class PreRank:
                                                  dataset_path=cfg.index_reader.dataset_path,
                                                  dataset_split=cfg.index_reader.dataset_split,
                                                  tokenizer=self.retriever_model.tokenizer)
-
-        self.index = self.create_index(cfg)
+        if self.method != "random":
+            self.index = self.create_index(cfg)
 
     def create_index(self, cfg):
         logger.info("building index...")

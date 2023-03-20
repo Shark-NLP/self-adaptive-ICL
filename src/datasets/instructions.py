@@ -48,6 +48,29 @@ def get_template(task_name, t=1):
                     "prompting_instruction": "<E>Positive Movie Review: \"<X>\"",
                 }
             }
+        elif task_name == "commonsense_qa":
+            return {
+                0: {
+                    "example_instruction": "Answer the following question:\n<X> \n Answer: <Y>",
+                    "prompting_instruction": "<E>Answer the following question:\n<X> \n Answer: <Y0>",
+                },
+                1: {
+                    "example_instruction": "Answer the following question:\n<X> \n Answer: <Y>",
+                    "prompting_instruction": "<E>Answer the following question:\n<X> \n Answer: <Y1>",
+                },
+                2: {
+                    "example_instruction": "Answer the following question:\n<X> \n Answer: <Y>",
+                    "prompting_instruction": "<E>Answer the following question:\n<X> \n Answer: <Y2>",
+                },
+                3: {
+                    "example_instruction": "Answer the following question:\n<X> \n Answer: <Y>",
+                    "prompting_instruction": "<E>Answer the following question:\n<X> \n Answer: <Y3>",
+                },
+                4: {
+                    "example_instruction": "Answer the following question:\n<X> \n Answer: <Y>",
+                    "prompting_instruction": "<E>Answer the following question:\n<X> \n Answer: <Y4>",
+                }
+            }
         elif task_name == 'boolq':
             return {
                 0: {  # False
