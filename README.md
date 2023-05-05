@@ -1,5 +1,5 @@
 # Self-adaptive In-context Learning
-This repository contains the source code for Self-adaptive In-context Learning, which is proposed in our paper [“Self-adaptive In-context Learning”](https://arxiv.org/abs/2212.10375). If you want to use our method easily, you can use the [“OpenICL”](https://github.com/Shark-NLP/OpenICL), an toolkit for In-context learning. You can also quickly repeat our experiments using our [“script”](https://github.com/Shark-NLP/OpenICL/blob/main/examples/research_projects/self-adaptive_in-context_learning.ipynb) in it.
+This repository contains the source code for Self-adaptive In-context Learning, which is proposed in our paper [“Self-adaptive In-context Learning”](https://arxiv.org/abs/2212.10375). If you want to use our method easily, you can use the [OpenICL](https://github.com/Shark-NLP/OpenICL), an toolkit for In-context learning. You can also quickly repeat our experiments using our [script](https://github.com/Shark-NLP/OpenICL/blob/main/examples/research_projects/self-adaptive_in-context_learning.ipynb) in it.
 
 ## Contents
 * [Setup](#setup)
